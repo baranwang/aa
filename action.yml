@@ -1,9 +1,0 @@
-name: 'AA'
-description: 'AA'
-author: 'Baran Wang <me@baran.wang>'
-runs:
-  using: 'docker'
-  image: 'Dockerfile'
-branding:
-  icon: 'git-commit'
-  color: 'orange'
