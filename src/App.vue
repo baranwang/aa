@@ -71,9 +71,9 @@ table th {
           :key="index"
         >
           <td v-text="item.name" />
-          <td v-text="item.price" />
-          <td v-text="item.publicFee" />
-          <td>{{ item.price + item.publicFee }}</td>
+          <td>{{ item.price | currency }}</td>
+          <td>{{ item.publicFee | currency }}</td>
+          <td>{{ item.price + item.publicFee | currency }}</td>
         </tr>
       </tbody>
     </table>
@@ -82,6 +82,17 @@ table th {
 
 <script>
 export default {
+  filters: {
+    /**
+     * @param {number} value
+     */
+    currency(value) {
+      return value.toLocaleString('zh-CN', {
+        style: 'currency',
+        currency: 'CNY'
+      })
+    }
+  },
   data() {
     return {
       persons: [
